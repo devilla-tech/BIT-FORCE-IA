@@ -8,7 +8,136 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color" content="#000000">
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    background: #050505;
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    background: #111;
+
+    padding: 20px;
+
+    border-bottom: 1px solid #333;
+}
+
+
+header h1 {
+    color: #00bfff;
+}
+
+
+#estado {
+    font-size: 13px;
+    color: #aaa;
+}
+
+
+main {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    max-width: 900px;
+
+    width: 100%;
+
+    margin: auto;
+}
+
+
+#chat {
+    flex: 1;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+
+.mensaje {
+    max-width: 80%;
+
+    padding: 12px 15px;
+
+    margin: 10px 0;
+
+    border-radius: 15px;
+}
+
+
+.ia {
+    background: #181818;
+}
+
+
+.usuario {
+    background: #0066ff;
+
+    margin-left: auto;
+}
+
+
+.entrada {
+    display: flex;
+
+    padding: 15px;
+
+    background: #111;
+}
+
+
+.entrada input {
+    flex: 1;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #222;
+
+    color: white;
+
+    outline: none;
+}
+
+
+.entrada button {
+    width: 55px;
+
+    margin-left: 10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #0066ff;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+</style>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/style.css">
 
