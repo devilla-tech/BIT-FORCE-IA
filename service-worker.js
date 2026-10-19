@@ -1,32 +1,52 @@
-const CACHE = "bitforce-ai-v1";
+const CACHE = "bit-force-ai-v1";
 
-const archivos = [
+const ARCHIVOS = [
     "./",
     "./index.html",
-    "./css/style.css",
-    "./js/app.js",
+    "./style.css",
     "./manifest.json"
 ];
 
-
-self.addEventListener("install", event => {
+self.addEventListener("install", (event) => {
 
     event.waitUntil(
         caches.open(CACHE)
-            .then(cache => cache.addAll(archivos))
+            .then((cache) => {
+                return cache.addAll(ARCHIVOS);
+            })
     );
 
 });
 
 
-self.addEventListener("fetch", event => {
+self.addEventListener("activate", (event) => {
+
+    event.waitUntil(
+        caches.keys().then((keys) => {
+
+            return Promise.all(
+
+                keys
+                    .filter((key) => key !== CACHE)
+                    .map((key) => caches.delete(key))
+
+            );
+
+        })
+    );
+
+});
+
+
+self.addEventListener("fetch", (event) => {
 
     event.respondWith(
 
         caches.match(event.request)
-            .then(respuesta => {
+            .then((respuesta) => {
 
-                return respuesta || fetch(event.request);
+                return respuesta ||
+                    fetch(event.request);
 
             })
 
